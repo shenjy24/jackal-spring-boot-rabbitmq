@@ -6,6 +6,9 @@
 
 访问 `http://localhost:15672/` 。默认情况下，RabbitMQ 控制台的用户名和密码都是 "guest"。
 
+### 手动创建主题
+RabbitMQ 需要手动创建主题，可以在控制台的 `Queues And Streams` 标签页创建。
+
 ### 参考文档
 
 [Downloading and Installing RabbitMQ](https://www.rabbitmq.com/download.html)
