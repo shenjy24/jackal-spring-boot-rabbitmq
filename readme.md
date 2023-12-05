@@ -6,8 +6,16 @@
 
 访问 `http://localhost:15672/` 。默认情况下，RabbitMQ 控制台的用户名和密码都是 "guest"。
 
-### 手动创建主题
-RabbitMQ 需要手动创建主题，可以在控制台的 `Queues And Streams` 标签页创建。
+### 创建主题
+```
+@RabbitListener(queuesToDeclare = @Queue(value = MessageQueue.NORMAL_QUEUE))
+```
+- 此种写法在服务启动时会自动创建队列
+
+```
+@RabbitListener(queues = MessageQueue.NORMAL_QUEUE)
+```
+- 此种写法需要手动创建队列，可以在控制台的 `Queues And Streams` 标签页创建。
 
 ### 参考文档
 

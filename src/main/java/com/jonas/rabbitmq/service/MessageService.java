@@ -1,6 +1,7 @@
 package com.jonas.rabbitmq.service;
 
-import com.jonas.rabbitmq.producer.MessageProducer;
+import com.jonas.rabbitmq.producer.RabbitProducer;
+import com.jonas.rabbitmq.producer.RabbitProducerFactory;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -15,15 +16,17 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class MessageService {
-    private final MessageProducer messageProducer;
+    private final RabbitProducerFactory producerFactory;
 
     /**
      * 发送消息
      *
-     * @param queueName 主题名
-     * @param message   消息
+     * @param exchange   交换机
+     * @param routingKey 路由键
+     * @param message    消息
      */
-    public void sendMessage(String queueName, String message) {
-        messageProducer.sendMessage(queueName, message);
+    public void sendMessage(String producerType, String exchange, String routingKey, String message) {
+        RabbitProducer rabbitProducer = producerFactory.getProducer(producerType);
+        rabbitProducer.sendMessage(exchange, routingKey, message);
     }
 }

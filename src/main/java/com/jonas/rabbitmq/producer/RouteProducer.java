@@ -1,7 +1,7 @@
 package com.jonas.rabbitmq.producer;
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.amqp.core.AmqpTemplate;
+import com.jonas.rabbitmq.constants.MessageProducerType;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 /**
@@ -10,11 +10,9 @@ import org.springframework.stereotype.Component;
  * @author shenjy
  * @time 2023/12/4 15:32
  */
-@Component
-@RequiredArgsConstructor
-public class RouteProducer {
-
-    private final AmqpTemplate amqpTemplate;
+@Slf4j
+@Component(value = MessageProducerType.ROUTE_PRODUCER)
+public class RouteProducer extends RabbitProducer {
 
     /**
      * 发送消息
@@ -24,7 +22,7 @@ public class RouteProducer {
      * @param message    消息
      */
     public void sendMessage(String exchange, String routingKey, String message) {
-        amqpTemplate.convertAndSend(exchange, routingKey, message);
+        rabbitTemplate.convertAndSend(exchange, routingKey, message);
         System.out.println("Message sent: " + message);
     }
 }

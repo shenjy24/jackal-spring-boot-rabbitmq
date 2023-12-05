@@ -2,6 +2,7 @@ package com.jonas.rabbitmq.consumer;
 
 import com.jonas.rabbitmq.constants.MessageExchange;
 import com.jonas.rabbitmq.constants.MessageQueue;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.ExchangeTypes;
 import org.springframework.amqp.rabbit.annotation.Exchange;
 import org.springframework.amqp.rabbit.annotation.Queue;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Component;
  * @author shenjy
  * @time 2023/12/5 14:17
  */
+@Slf4j
 @Component
 public class FanoutCustomer2 {
     /**
@@ -40,7 +42,7 @@ public class FanoutCustomer2 {
             )
     )
     public void handleMessage(String message) {
-        System.out.println("Received message: " + message);
+        log.info("Received message: " + message);
     }
 
 }

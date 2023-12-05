@@ -21,11 +21,13 @@ public class MessageController {
     /**
      * 发送消息
      *
-     * @param queueName 主题名
-     * @param message   消息
+     * @param producerType 生成者类型
+     * @param exchange     交换机
+     * @param routingKey   路由键
+     * @param message      消息内容
      */
     @PostMapping("/send")
-    public void sendMessage(String queueName, String message) {
-        messageService.sendMessage(queueName, message);
+    public void sendMessage(String producerType, String exchange, String routingKey, String message) {
+        messageService.sendMessage(producerType, exchange, routingKey, message);
     }
 }
