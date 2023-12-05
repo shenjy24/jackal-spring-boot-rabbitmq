@@ -1,6 +1,6 @@
 package com.jonas.rabbitmq;
 
-import com.jonas.rabbitmq.constants.MessageTopic;
+import com.jonas.rabbitmq.constants.MessageQueue;
 import com.jonas.rabbitmq.service.MessageService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +14,6 @@ class ApplicationTests {
 
     @Test
     void testSendMessage() {
-        messageService.sendMessage(MessageTopic.TEST_TOPIC, "hello world");
+        messageService.sendMessage(MessageQueue.NORMAL_QUEUE, "hello world");
     }
 }
