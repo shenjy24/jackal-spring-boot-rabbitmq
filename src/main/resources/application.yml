@@ -4,3 +4,6 @@ spring:
     port: 5672
     username: guest
     password: guest
+#    listener:
+#      simple:
+#        prefetch: 1  # 每个消费者每次可以消费一个，不设置如果采用工作队列模式，快的消费者和慢的消费会消费相同数量的消息，导致快的消费者闲置

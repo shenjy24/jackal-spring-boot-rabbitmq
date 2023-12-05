@@ -14,7 +14,8 @@ public class MessageQueue {
     public static final String WORK_QUEUE = "work_queue";
 
     // 广播模式
-    public static final String FANOUT_QUEUE = "fanout_queue";
+    public static final String FANOUT_QUEUE_1 = "fanout_queue_1";
+    public static final String FANOUT_QUEUE_2 = "fanout_queue_2";
 
     // 路由模式
     public static final String ROUTE_QUEUE_1 = "route_queue_1";

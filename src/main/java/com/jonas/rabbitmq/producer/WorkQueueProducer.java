@@ -14,6 +14,8 @@ import org.springframework.stereotype.Component;
 @Component(value = MessageProducerType.WORK_QUEUE_PRODUCER)
 public class WorkQueueProducer extends RabbitProducer {
 
+    private static final int NUM = 10;
+
     /**
      * 发送消息
      *
@@ -22,7 +24,9 @@ public class WorkQueueProducer extends RabbitProducer {
      * @param message    消息
      */
     public void sendMessage(String exchange, String routingKey, String message) {
-        rabbitTemplate.convertAndSend(routingKey, message);
-        System.out.println("Message sent: " + message);
+        for (int i = 0; i < NUM; i++) {
+            rabbitTemplate.convertAndSend(routingKey, message);
+            log.info("Message sent: " + message);
+        }
     }
 }

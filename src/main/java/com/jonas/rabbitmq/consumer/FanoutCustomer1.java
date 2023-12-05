@@ -28,7 +28,7 @@ public class FanoutCustomer1 {
      */
     @RabbitListener(
             bindings = @QueueBinding(
-                    value = @Queue(value = MessageQueue.FANOUT_QUEUE),
+                    value = @Queue(value = MessageQueue.FANOUT_QUEUE_1),
                     exchange = @Exchange(
                             value = MessageExchange.FANOUT_EXCHANGE,
                             type = ExchangeTypes.FANOUT
