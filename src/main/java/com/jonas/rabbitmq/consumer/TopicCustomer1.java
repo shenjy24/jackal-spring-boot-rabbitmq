@@ -32,7 +32,7 @@ public class TopicCustomer1 {
             )
     )
     public void handleMessage(String message) {
-        log.info("Received message: " + message);
+        log.info("Received message: {}", message);
     }
 
 }

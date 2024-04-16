@@ -26,7 +26,7 @@ public class WorkQueueProducer extends RabbitProducer {
     public void sendMessage(String exchange, String routingKey, String message) {
         for (int i = 0; i < NUM; i++) {
             rabbitTemplate.convertAndSend(routingKey, message);
-            log.info("Message sent: " + message);
+            log.info("Message sent: {}", message);
         }
     }
 }

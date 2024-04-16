@@ -25,7 +25,7 @@ public class WorkQueueSlowConsumer {
         } catch (InterruptedException e) {
             log.error("work queue consumer error", e);
         }
-        log.info("Received message: " + message);
+        log.info("Received message: {}", message);
         // 处理消息的业务逻辑
     }
 }

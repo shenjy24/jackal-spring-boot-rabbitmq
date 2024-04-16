@@ -23,6 +23,6 @@ public class MessageProducer extends RabbitProducer {
      */
     public void sendMessage(String exchange, String routingKey, String message) {
         rabbitTemplate.convertAndSend(routingKey, message);
-        log.info("Message sent: " + message);
+        log.info("Message sent: {}", message);
     }
 }

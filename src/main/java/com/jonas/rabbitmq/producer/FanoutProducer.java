@@ -19,6 +19,6 @@ public class FanoutProducer extends RabbitProducer {
         // 直接指定交换机，交换机 会将消息发送到所有和该交换机绑定的队列中
         // 就算指定 routingKey，在广播模式中也是不生效的，交换机还是会把消息推送到所有与之绑定的队列中
         rabbitTemplate.convertAndSend(exchange, "", message);
-        log.info("Message sent: " + message);
+        log.info("Message sent: {}", message);
     }
 }

@@ -20,7 +20,7 @@ public class MessageConsumer {
 
     @RabbitListener(queuesToDeclare = @Queue(value = MessageQueue.NORMAL_QUEUE))
     public void handleMessage(String message) {
-        log.info("Received message: " + message);
+        log.info("Received message: {}", message);
         // 处理消息的业务逻辑
     }
 }
