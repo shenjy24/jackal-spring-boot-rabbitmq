@@ -1,10 +1,13 @@
 ### Docker 部署
-
-    docker run -d --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.12-management
+```
+// 创建数据卷
+docker volume create rabbitmq-home
+docker run -d --name=rabbitmq -v rabbitmq-home:/var/lib/rabbitmq -p 15672:15672 -p 5672:5672 -e RABBITMQ_DEFAULT_USER=root -e RABBITMQ_DEFAULT_PASS=123456 rabbitmq:management
+```
 
 ### 控制台
 
-访问 `http://localhost:15672/` 。默认情况下，RabbitMQ 控制台的用户名和密码都是 "guest"。
+访问 `http://localhost:15672/` 。RabbitMQ 控制台的用户名和密码由上述指令指定，用户名为root，密码为123456。
 
 ### 创建主题
 ```
